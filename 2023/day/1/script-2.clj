@@ -5,17 +5,14 @@
     (into-array (line-seq rdr))))
 
 (defn affianca-numeri [sequenza]
-  (let [
-        affiancamento (str (first sequenza) (last sequenza))
-        ]
+  (let [affiancamento (str (first sequenza) (last sequenza))]
     (Integer/parseInt affiancamento)))
 
 (defn scansiona-linea [linea]
   (map last (re-seq #"(?=(one|two|three|four|five|six|seven|eight|nine|\d))" linea)))
 
 (defn numerifica [sequenza-scansionata]
-  (let [mappatura {
-                   "one" 1
+  (let [mappatura {"one" 1
                    "two" 2
                    "three" 3
                    "four" 4
@@ -33,8 +30,7 @@
                    "7" 7
                    "8" 8
                    "9" 9}]
-    (map mappatura sequenza-scansionata))
-  )
+    (map mappatura sequenza-scansionata)))
 
 ;; (let [mappina (map affianca-numeri (file-to-array "input"))
 ;;       sommina (reduce + mappina)
@@ -47,7 +43,5 @@
 
 (let [scansionate (map scansiona-linea (file-to-array "input"))
       numerizzate (map numerifica scansionate)
-      affiancate (map affianca-numeri numerizzate)
-      ]
-  (println (apply + affiancate))
-  )
+      affiancate (map affianca-numeri numerizzate)]
+  (println (apply + affiancate)))
