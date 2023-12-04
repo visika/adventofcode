@@ -12,8 +12,6 @@
     (Integer/parseInt numero-linea)))
 
 (let [mappina (map affianca-numeri (file-to-array "input"))
-      sommina (reduce + mappina)
-      ]
+      sommina (reduce + mappina)]
   (println "mappina:" mappina)
-  (println "sommina:" sommina)
-  )
+  (println "sommina:" sommina))
